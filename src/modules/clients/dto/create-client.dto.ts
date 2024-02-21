@@ -12,7 +12,7 @@ export class CreateClientDto {
   phone: string;
 
   @IsEmail()
-  @IsNotEmpty()
+   @IsNotEmpty()
   email: string;
 
   @IsString()
