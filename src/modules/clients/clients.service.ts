@@ -6,7 +6,7 @@ import {
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { Client } from './entities/client.entity';
-import { instanceToPlain, plainToInstance } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { PrismaService } from 'prisma/prisma.service';
 
 @Injectable()
@@ -37,6 +37,11 @@ export class ClientsService {
       throw new NotFoundException('Client not found');
     }
     return plainToInstance(Client, client);
+  }
+
+  async findEmailClient(email: string): Promise<Client> {
+    const client = await this.prisma.client.findUnique({ where: { email } });
+    return client;
   }
 
   async update(id: string, updateClientDto: UpdateClientDto): Promise<Client> {
