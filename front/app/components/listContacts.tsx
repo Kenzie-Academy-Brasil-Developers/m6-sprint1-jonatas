@@ -13,7 +13,7 @@ const ListContacts = ({contacts}: ListContactProps)=>{
     const {setContacts} = useContact()
     useEffect(() => {
         setContacts(contacts)
-    }, [])
+    }, [contacts, setContacts])
     return(
         <>
         <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-items-center">
