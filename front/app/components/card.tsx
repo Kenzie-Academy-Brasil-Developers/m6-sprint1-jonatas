@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { ContactData } from "../schemas/contacts.schema";
 import { FaPhone } from "react-icons/fa";
