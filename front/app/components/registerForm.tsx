@@ -19,7 +19,7 @@ const RegisterForm = () => {
     <div className="client-form-container">
       <p className="text-4xl mt-6 font-serif">Cadastre-se</p>
       <form className="space-y-6 w-4/5" onSubmit={handleSubmit(onFormSubmit)}>
-        <div>
+        <div className="grid gap-2">
           <label htmlFor="name" className="client-form-label">
             Nome
           </label>
@@ -71,12 +71,18 @@ const RegisterForm = () => {
             </div>
           </div>
           <div>
-            <button type="submit" className="client-form-button">
+            <button
+              type="submit"
+              className="min-w-full client-form-button bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+            >
               Cadastrar
             </button>
           </div>
 
-          <Link href={"/login"} className="client-form-link">
+          <Link
+            href={"/login"}
+            className="client-form-link bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded"
+          >
             Ir para o login
           </Link>
         </div>
