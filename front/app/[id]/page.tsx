@@ -9,12 +9,12 @@ interface PageProps {
   };
 }
 
-export const revalidate = 90
+export const revalidate = 90;
 
-export async function generateStaticParams(){
-    const response = await api.get<ContactData[]>('/contacts')
+export async function generateStaticParams() {
+  const response = await api.get<ContactData[]>("/contacts");
 
-    return response.data.map((contact) => ({id: contact.id}))
+  return response.data.map((contact) => ({ id: contact.id }));
 }
 
 const Contact = async ({ params }: PageProps) => {
@@ -22,14 +22,21 @@ const Contact = async ({ params }: PageProps) => {
   const contact: ContactData = response.data;
 
   return (
-    <main className="body min-h-screen">
-      <div className="flex justify-end p-6">
-        <Link href={"/"} className="btn-primary">Voltar</Link>
-      </div>
-      <div className="flex items-center justify-center">
-        <ContactContainer contact={contact} />
-      </div>
-    </main>
+    <>
+      <main className="body min-h-screen">
+        <div className="flex justify-end p-6">
+          <Link
+            href={"/"}
+            className="btn-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+          >
+            Voltar
+          </Link>
+        </div>
+        <div className="flex items-center justify-center">
+          <ContactContainer contact={contact} />
+        </div>
+      </main>
+    </>
   );
 };
 

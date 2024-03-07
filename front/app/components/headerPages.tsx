@@ -1,0 +1,37 @@
+"use client";
+
+import Link from "next/link";
+import { ReactNode } from "react";
+import { deleteCookie } from "cookies-next";
+
+interface LayoutProps {
+  children?: ReactNode;
+}
+const HeaderPages = ({ children }: LayoutProps) => {
+  const handleLogout = () => {
+    deleteCookie("contatos.token");
+    window.location.href = "/login";
+  };
+
+  return (
+    <>
+      <header className="flex justify-start mr-2 bg-gray-200 w-full p-3.5">
+        <nav>
+          <ul>
+            <li>
+              <Link className="mr-2" href="/principal">
+                Início
+              </Link>
+              <a className="mr-2" onClick={handleLogout}>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      {children}
+    </>
+  );
+};
+
+export default HeaderPages;
