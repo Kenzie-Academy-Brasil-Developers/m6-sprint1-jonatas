@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: Props) => {
       })
       .then(() => {
         Toast({ message: "Login realizado!", isSuccess: true });
-        router.push("/");
+        router.push("/principal");
         // Toast
       })
       .catch((error) => {

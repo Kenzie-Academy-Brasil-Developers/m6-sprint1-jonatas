@@ -19,10 +19,10 @@ const HeaderPages = ({ children }: LayoutProps) => {
         <nav>
           <ul>
             <li>
-              <Link className="mr-2" href="/principal">
+              <Link className="w-5 mr-2 cursor-pointer hover:bg-gray-600/30" href="/principal">
                 Início
               </Link>
-              <a className="mr-2" onClick={handleLogout}>
+              <a className="mr-2 cursor-pointer hover:bg-gray-600/30" onClick={handleLogout}>
                 Logout
               </a>
             </li>

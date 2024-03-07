@@ -17,9 +17,9 @@ const LoginForm = () => {
   };
   return (
     <div className="client-form-container">
-      <p className="text-4xl mt-6 font-serif">Login</p>
-      <form className="space-y-6 w-4/5" onSubmit={handleSubmit(onFormSubmit)}>
-        <div>
+      <p className="text-4xl mt-4 font-serif">Login</p>
+      <form className="space-y-4 w-5/5" onSubmit={handleSubmit(onFormSubmit)}>
+        <div className="flex flex-col items-center gap-3">
           <div>
             <label htmlFor="email" className="client-form-label">
               E-mail
@@ -50,11 +50,17 @@ const LoginForm = () => {
             </Link>
           </div>
           <div>
-            <button type="submit" className="client-form-button">
+            <button
+              type="submit"
+              className="min-w-full client-form-button bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+            >
               Entrar
             </button>
           </div>
-          <Link href={"/register"} className="client-form-button">
+          <Link
+            href={"/register"}
+            className="client-form-button bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded "
+          >
             Não cadastrado? Clique aqui!
           </Link>
         </div>
