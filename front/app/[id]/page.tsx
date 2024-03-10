@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContactData } from "../schemas/contacts.schema";
 import api from "../services/api";
 import ContactContainer from "../components/contactContainer";
+import HeaderPages from "../components/headerPages";
 
 interface PageProps {
   params: {
@@ -23,6 +24,8 @@ const Contact = async ({ params }: PageProps) => {
 
   return (
     <>
+      <HeaderPages />
+
       <main className="body min-h-screen">
         <div className="flex justify-end p-6">
           <Link

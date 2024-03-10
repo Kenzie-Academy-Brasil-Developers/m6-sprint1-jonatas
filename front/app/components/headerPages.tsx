@@ -1,37 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode, useEffect, useState } from "react";
-import { deleteCookie, getCookie } from "cookies-next";
+import { ReactNode } from "react";
+import { deleteCookie } from "cookies-next";
 
 interface LayoutProps {
   children?: ReactNode;
 }
 const HeaderPages = ({ children }: LayoutProps) => {
-  const [loggedIn, setLoggedIn] = useState<boolean | undefined>(undefined); // Inicializado com undefined
-
-  useEffect(() => {
-    const cookieLogged = getCookie("contatos.token");
-
-    if (cookieLogged !== undefined) {
-      setLoggedIn(true); 
-    } else {
-      setLoggedIn(false); 
-    }
-  }, []);
-
   const handleLogout = () => {
     deleteCookie("contatos.token");
     window.location.href = "/login";
   };
-
-  if (loggedIn === undefined) {
-    return null;
-  }
-
-  if (!loggedIn) {
-    return null;
-  }
 
   return (
     <>
