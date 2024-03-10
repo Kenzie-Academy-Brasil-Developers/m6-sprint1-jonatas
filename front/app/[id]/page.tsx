@@ -3,6 +3,17 @@ import { ContactData } from "../schemas/contacts.schema";
 import api from "../services/api";
 import ContactContainer from "../components/contactContainer";
 import HeaderPages from "../components/headerPages";
+import { getCookie } from "cookies-next";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+const verifyToken = () => {
+  const token = getCookie("contatos.token", { cookies });
+  if (!token) {
+    redirect("/login");
+  }
+  return token;
+};
 
 interface PageProps {
   params: {
@@ -21,7 +32,7 @@ export async function generateStaticParams() {
 const Contact = async ({ params }: PageProps) => {
   const response = await api.get(`/contacts/${params.id}`);
   const contact: ContactData = response.data;
-
+  verifyToken();
   return (
     <>
       <HeaderPages />
