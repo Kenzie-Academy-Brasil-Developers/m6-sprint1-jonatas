@@ -21,11 +21,13 @@ const LoginForm = () => {
       <form className="space-y-4 w-5/5" onSubmit={handleSubmit(onFormSubmit)}>
         <div className="flex flex-col items-center gap-3">
           <div>
-            <label htmlFor="email" className="client-form-label">
+            <label htmlFor="login-email" className="client-form-label">
               E-mail
             </label>
             <div className="mt-2">
               <input
+                autoComplete="on"
+                id="login-email"
                 type="email"
                 placeholder="example@.com"
                 className="client-form-input"
@@ -34,11 +36,13 @@ const LoginForm = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="password" className="client-form-label">
+            <label htmlFor="login-password" className="client-form-label">
               Senha
             </label>
             <div className="mt-2">
               <input
+                autoComplete="on"
+                id="login-password"
                 type="password"
                 placeholder="Sua senha"
                 className="client-form-input"

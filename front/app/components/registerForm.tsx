@@ -20,11 +20,13 @@ const RegisterForm = () => {
       <p className="text-4xl mt-6 font-serif">Cadastre-se</p>
       <form className="space-y-6 w-4/5" onSubmit={handleSubmit(onFormSubmit)}>
         <div className="grid gap-2">
-          <label htmlFor="name" className="client-form-label">
+          <label htmlFor="register-name" className="client-form-label">
             Nome
           </label>
           <div className="mt-2">
             <input
+            autoComplete="on"
+              id="register-name"
               type="text"
               placeholder="Seu Nome"
               className="client-form-input"
@@ -32,11 +34,12 @@ const RegisterForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="client-form-label">
+            <label htmlFor="register-email" className="client-form-label">
               E-mail
             </label>
             <div className="mt-2">
               <input
+                id="register-email"
                 type="email"
                 placeholder="example@.com"
                 className="client-form-input"
@@ -45,11 +48,13 @@ const RegisterForm = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="phone" className="client-form-label">
+            <label htmlFor="register-phone" className="client-form-label">
               Numero de telefone
             </label>
             <div className="mt-2">
               <input
+              autoComplete="on"
+                id="register-phone"
                 type="text"
                 placeholder="example@.com"
                 className="client-form-input"
@@ -58,11 +63,13 @@ const RegisterForm = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="password" className="client-form-label">
+            <label htmlFor="register-password" className="client-form-label">
               Senha
             </label>
             <div className="mt-2">
               <input
+              autoComplete="on"
+                id="register-password"
                 type="password"
                 placeholder="Sua senha"
                 className="client-form-input"
