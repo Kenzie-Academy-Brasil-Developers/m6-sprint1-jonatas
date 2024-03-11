@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import api from "../services/api";
 import { setCookie } from "cookies-next";
 import Toast from "../components/toast";
+import { ContactData } from "../schemas/contacts.schema";
 
 interface Props {
   children: ReactNode;
@@ -12,6 +13,7 @@ interface Props {
 interface AuthProviderData {
   register: (clientData: ClientData) => void;
   login: (loginData: LoginData) => void;
+  contact: (contactData: ContactData) => void;
 }
 
 const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
@@ -45,8 +47,21 @@ export const AuthProvider = ({ children }: Props) => {
         Toast({ message: "Erro no login! Verifique seu email/senha" });
       });
   };
+
+  const contact = (contactData: ContactData) => {
+    api
+      .post("/contacts", contactData)
+      .then(() => {
+        Toast({ message: "Contato cadastrado com sucesso!", isSuccess: true });
+        router.push("/");
+      })
+      .catch((error) => {
+        Toast({ message: "Erro ao cadastrar contato!" });
+      });
+  };
+
   return (
-    <AuthContext.Provider value={{ register, login }}>
+    <AuthContext.Provider value={{ register, login, contact }}>
       {children}
     </AuthContext.Provider>
   );

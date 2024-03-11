@@ -26,7 +26,6 @@ interface ContactProviderProps {
     children: ReactNode;
 }
 
-// Componente do provedor de contexto
 export const ContactProvider = (props: ContactProviderProps) => {
     const { children } = props;
     const [contacts, setContacts] = useState<Contact[]>([]);

@@ -3,6 +3,7 @@ import HeaderPages from "../components/headerPages";
 import { getCookie } from "cookies-next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import CreateContactForm from "../components/registerContactForm";
 
 const verifyToken = () => {
   const token = getCookie("contatos.token", { cookies });
@@ -12,14 +13,14 @@ const verifyToken = () => {
   return token;
 };
 
-const Contact: NextPage = () => {
+const Contacts: NextPage = () => {
   verifyToken();
   return (
     <>
       <HeaderPages />
-      <p>contact page</p>
+      <CreateContactForm />
     </>
   );
 };
 
-export default Contact;
+export default Contacts;
