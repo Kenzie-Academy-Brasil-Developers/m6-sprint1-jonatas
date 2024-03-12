@@ -10,7 +10,7 @@ interface LayoutProps {
 const HeaderPages = ({ children }: LayoutProps) => {
   const handleLogout = () => {
     deleteCookie("contatos.token");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (

@@ -29,11 +29,15 @@ export class ContactsController {
   }
 
   @Get()
-  findAll() {
-    return this.contactsService.findAll();
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  findAll(@Request() req) {
+    return this.contactsService.findAll(req.user.id);
   }
 
   @Get(':id')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string) {
     return this.contactsService.findOne(id);
   }

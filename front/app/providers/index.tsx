@@ -20,7 +20,6 @@ export const Providers = ({ children }: { children: ReactNode }) => {
         pauseOnHover
         theme="light"
       />
-      <ToastContainer />
       <AuthProvider>
         <ContactProvider>{children}</ContactProvider>
       </AuthProvider>

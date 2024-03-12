@@ -87,7 +87,7 @@ const RegisterForm = () => {
           </div>
 
           <Link
-            href={"/login"}
+            href={"/"}
             className="client-form-link bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded"
           >
             Ir para o login

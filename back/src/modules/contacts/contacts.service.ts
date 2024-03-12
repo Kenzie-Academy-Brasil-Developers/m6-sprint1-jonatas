@@ -6,7 +6,7 @@ import { Contact } from './entities/contact.entity';
 
 @Injectable()
 export class ContactsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
   async create(createContactDto: CreateContactDto, clientId: string) {
     const contact = Object.assign(new Contact(), createContactDto);
     const newContact = await this.prisma.contact.create({
@@ -22,8 +22,8 @@ export class ContactsService {
     return newContact;
   }
 
-  async findAll() {
-    return await this.prisma.contact.findMany();
+  async findAll(id: string) {
+    return await this.prisma.contact.findMany({ where: { clientId: id } });
   }
 
   async findOne(id: string) {
@@ -39,6 +39,11 @@ export class ContactsService {
   }
 
   async remove(id: string) {
-    return `This action removes a #${id} contact`;
+    const contact = await this.prisma.contact.findFirst({ where: { id } });
+    if (!contact) {
+      throw new NotFoundException('Contact not found');
+    }
+
+    return this.prisma.contact.delete({ where: { id } });
   }
 }

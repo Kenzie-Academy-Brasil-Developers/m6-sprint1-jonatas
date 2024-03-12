@@ -2,12 +2,19 @@
 import Link from "next/link";
 import { ContactFullData } from "../schemas/contacts.schema";
 import { FaPhone, FaTrash } from "react-icons/fa";
+import { useContact } from "../contexts/contactContext";
 
 interface CardProps {
   contact: ContactFullData;
 }
 
 const Card = ({ contact }: CardProps) => {
+  const { deleteContact } = useContact();
+
+  const handleDelete = () => {
+    deleteContact(contact.id);
+  };
+
   return (
     <div className="flex flex-col justify-items-end bg-gray-400 w-50 h-35 rounded-lg">
       <Link
@@ -24,7 +31,7 @@ const Card = ({ contact }: CardProps) => {
             <FaPhone className="fill-blue-400 w-10 h-10 m-1" />
           </a>
         </button>
-        <button>
+        <button onClick={handleDelete}>
           <FaTrash className="fill-red-400 w-10 h-10 m-1" />
         </button>
       </div>

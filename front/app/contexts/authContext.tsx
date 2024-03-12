@@ -5,7 +5,6 @@ import api from "../services/api";
 import { getCookie, setCookie } from "cookies-next";
 import Toast from "../components/toast";
 import { ContactData } from "../schemas/contacts.schema";
-// import { cookies } from "next/headers";
 
 interface Props {
   children: ReactNode;
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }: Props) => {
       .post("/clients", clientData)
       .then(() => {
         Toast({ message: "Cadastro realizado!", isSuccess: true });
-        router.push("/login");
+        router.push("/");
       })
       .catch((error) => {
         Toast({ message: "Erro no cadastro!" });
@@ -42,7 +41,6 @@ export const AuthProvider = ({ children }: Props) => {
       .then(() => {
         Toast({ message: "Login realizado!", isSuccess: true });
         router.push("/principal");
-        // Toast
       })
       .catch((error) => {
         Toast({ message: "Erro no login! Verifique seu email/senha" });
@@ -57,12 +55,15 @@ export const AuthProvider = ({ children }: Props) => {
       })
       .then(() => {
         Toast({ message: "Contato cadastrado com sucesso!", isSuccess: true });
-        router.push("/");
+        
+        router.push("/dashboard");
       })
       .catch((error) => {
         Toast({ message: "Erro ao cadastrar contato!" });
       });
   };
+
+
 
   return (
     <AuthContext.Provider value={{ register, login, contact }}>
