@@ -2,9 +2,10 @@ import { ReactNode, createContext, useContext } from "react";
 import { ClientData, LoginData } from "../schemas/client.schema";
 import { useRouter } from "next/navigation";
 import api from "../services/api";
-import { setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import Toast from "../components/toast";
 import { ContactData } from "../schemas/contacts.schema";
+// import { cookies } from "next/headers";
 
 interface Props {
   children: ReactNode;
@@ -49,8 +50,11 @@ export const AuthProvider = ({ children }: Props) => {
   };
 
   const contact = (contactData: ContactData) => {
+    const token = getCookie("contatos.token");
     api
-      .post("/contacts", contactData)
+      .post("/contacts", contactData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then(() => {
         Toast({ message: "Contato cadastrado com sucesso!", isSuccess: true });
         router.push("/");

@@ -2,11 +2,15 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../contexts/authContext";
-import { ContactData, ContactSchema } from "../schemas/contacts.schema";
+import {
+  ContactData,
+  ContactSchema,
+  RegisterContact,
+} from "../schemas/contacts.schema";
 
 const CreateContactForm = () => {
   const { register, handleSubmit } = useForm<ContactData>({
-    resolver: zodResolver(ContactSchema),
+    resolver: zodResolver(RegisterContact),
   });
 
   const { contact: registerContact } = useAuth();
