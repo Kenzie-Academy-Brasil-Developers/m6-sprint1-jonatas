@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import { useContact } from "../contexts/contactContext";
-import { ContactData } from "../schemas/contacts.schema";
+import { ContactFullData } from "../schemas/contacts.schema";
 import Card from "./card";
 
 interface ListContactProps {
-  contacts: ContactData[];
+  contacts: ContactFullData[];
 }
 
 const ListContacts = ({ contacts }: ListContactProps) => {

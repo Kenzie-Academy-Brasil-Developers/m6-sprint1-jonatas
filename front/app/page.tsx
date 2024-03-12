@@ -1,7 +1,7 @@
 import { getCookie } from "cookies-next";
 import HeaderPages from "./components/headerPages";
 import ListContacts from "./components/listContacts";
-import { ContactData } from "./schemas/contacts.schema";
+import { ContactFullData } from "./schemas/contacts.schema";
 import api from "./services/api";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -16,7 +16,7 @@ const verifyToken = () => {
 
 export default async function Home() {
   const response = await api.get("/contacts");
-  const contacts: ContactData[] = response.data;
+  const contacts: ContactFullData[] = response.data;
   verifyToken();
   return (
     <>

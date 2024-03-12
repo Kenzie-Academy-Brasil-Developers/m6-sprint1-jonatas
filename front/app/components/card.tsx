@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { ContactData } from "../schemas/contacts.schema";
+import { ContactFullData } from "../schemas/contacts.schema";
 import { FaPhone } from "react-icons/fa";
 
 interface CardProps {
-  contact: ContactData;
+  contact: ContactFullData;
 }
 
 const Card = ({ contact }: CardProps) => {

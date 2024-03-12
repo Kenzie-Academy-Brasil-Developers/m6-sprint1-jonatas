@@ -1,9 +1,9 @@
 "use client";
 
-import { ContactData } from "../schemas/contacts.schema";
+import { ContactFullData } from "../schemas/contacts.schema";
 
 interface IContactContainerProps {
-  contact: ContactData;
+  contact: ContactFullData;
 }
 
 const ContactContainer = ({ contact }: IContactContainerProps) => {

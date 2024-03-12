@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../contexts/authContext";
 import {
   ContactData,
-  ContactSchema,
   RegisterContact,
 } from "../schemas/contacts.schema";
 

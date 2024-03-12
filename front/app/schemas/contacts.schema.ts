@@ -15,3 +15,4 @@ export const RegisterContact = ContactSchema.omit({
 });
 
 export type ContactData = z.infer<typeof RegisterContact>;
+export type ContactFullData = z.infer<typeof ContactSchema>;
