@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { ContactFullData } from "../schemas/contacts.schema";
-import { FaPhone } from "react-icons/fa";
+import { FaPhone, FaTrash } from "react-icons/fa";
 
 interface CardProps {
   contact: ContactFullData;
@@ -18,9 +18,14 @@ const Card = ({ contact }: CardProps) => {
         <p className="m-3 text-xl">{contact.phone}</p>
         <p className="m-3 text-xl">{contact.email}</p>
       </Link>
-      <div className="min-h-15 bg-gray-400 flex justify-center rounded-e-sm">
+      <div className="min-h-15 bg-gray-400 flex justify-center gap-2 rounded-e-sm ">
         <button>
-          <FaPhone className="fill-blue-400 w-10 h-10 m-1" />
+          <a href={`tel:${contact.phone}`}>
+            <FaPhone className="fill-blue-400 w-10 h-10 m-1" />
+          </a>
+        </button>
+        <button>
+          <FaTrash className="fill-red-400 w-10 h-10 m-1" />
         </button>
       </div>
     </div>
