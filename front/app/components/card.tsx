@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ContactFullData } from "../schemas/contacts.schema";
 import { FaPhone, FaTrash } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 import { useContact } from "../contexts/contactContext";
 
 interface CardProps {
@@ -26,14 +27,28 @@ const Card = ({ contact }: CardProps) => {
         <p className="m-3 text-xl">{contact.email}</p>
       </Link>
       <div className="min-h-15 bg-gray-400 flex justify-center gap-2 rounded-e-sm ">
-        <button>
-          <a href={`tel:${contact.phone}`}>
-            <FaPhone className="fill-blue-400 w-10 h-10 m-1" />
-          </a>
-        </button>
-        <button onClick={handleDelete}>
-          <FaTrash className="fill-red-400 w-10 h-10 m-1" />
-        </button>
+        <div>
+          <p>Ligar</p>
+          <button>
+            <a href={`tel:${contact.phone}`}>
+              <FaPhone className="fill-blue-400 w-10 h-10 m-1" />
+            </a>
+          </button>
+        </div>
+        <div>
+          <p>Deletar</p>
+          <button onClick={handleDelete}>
+            <FaTrash className="fill-red-400 w-10 h-10 m-1" />
+          </button>
+        </div>
+        <div>
+          <p>Atualizar</p>
+          <button>
+            <a href="/update">
+              <GrUpdate className="fill-red-400 w-10 h-10 m-1" />
+            </a>
+          </button>
+        </div>
       </div>
     </div>
   );
