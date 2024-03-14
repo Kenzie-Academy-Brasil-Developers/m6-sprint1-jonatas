@@ -68,6 +68,7 @@ export const ContactProvider = (props: ContactProviderProps) => {
         const response = await api.get("/contacts", {
           headers: { Authorization: `Bearer ${token}` },
         });
+        console.log(response.data)
         setContacts(response.data);
       }
     })();

@@ -20,7 +20,7 @@ const UpdateContactForm = () => {
   };
   return (
     <div className="client-form-container">
-      <p className="text-4xl mt-6 font-serif">Atualizar contato</p>
+      <p className="text-4xl mt-6 font-serif">Cadastre um contato</p>
       <form className="space-y-6 w-4/5" onSubmit={handleSubmit(onFormSubmit)}>
         <div className="grid gap-2">
           <label htmlFor="contact-name" className="client-form-label">
