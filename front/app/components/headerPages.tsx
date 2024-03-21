@@ -27,7 +27,7 @@ const HeaderPages = ({ children }: LayoutProps) => {
               </Link>
               <Link
                 className="w-5 mr-2 cursor-pointer hover:bg-gray-600/30"
-                href="/config"
+                href="/configuration"
               >
                 Configurações
               </Link>
