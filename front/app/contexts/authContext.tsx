@@ -59,6 +59,7 @@ export const AuthProvider = ({ children }: Props) => {
         router.push("/dashboard");
       })
       .catch((error) => {
+        console.log(error.response.data)
         Toast({ message: "Erro ao cadastrar contato!" });
       });
   };

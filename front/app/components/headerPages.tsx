@@ -25,6 +25,12 @@ const HeaderPages = ({ children }: LayoutProps) => {
               >
                 Início
               </Link>
+              <Link
+                className="w-5 mr-2 cursor-pointer hover:bg-gray-600/30"
+                href="/config"
+              >
+                Configurações
+              </Link>
               <a
                 className="mr-2 cursor-pointer hover:bg-gray-600/30"
                 onClick={handleLogout}

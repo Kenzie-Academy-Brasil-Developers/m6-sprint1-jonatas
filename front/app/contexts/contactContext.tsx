@@ -22,6 +22,7 @@ interface ContactContextType {
   contacts: Contact[];
   setContacts: (contacts: Contact[]) => void;
   deleteContact: (id: string) => void;
+  getAllContacts: () => void;
 }
 
 const ContactContext = createContext<ContactContextType | undefined>(undefined);
@@ -61,21 +62,22 @@ export const ContactProvider = (props: ContactProviderProps) => {
       });
   };
 
-  useEffect(() => {
+  const getAllContacts = () => {
     const token = getCookie("contatos.token");
     (async () => {
       if (token) {
         const response = await api.get("/contacts", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(response.data)
         setContacts(response.data);
       }
     })();
-  }, []);
+  };
 
   return (
-    <ContactContext.Provider value={{ contacts, setContacts, deleteContact }}>
+    <ContactContext.Provider
+      value={{ contacts, setContacts, deleteContact, getAllContacts }}
+    >
       {children}
     </ContactContext.Provider>
   );
